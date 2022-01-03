@@ -1,0 +1,20 @@
+{% if latest_siti %}
+    <ul>
+    {% for sito in latest_siti %}
+    <tr>
+        <th>{{ sito.localita }}</th>
+        <th>{{ sito.indirizzo }}</th>
+        <th>{{ sito.provincia }}</th>
+        <th>{{ sito.posizione GPS }}</th>
+        <th>{{ sito.localita }}</th>
+        <th>{{ sito.localita }}</th>
+        <th>{{ sito.localita }}</th>
+
+        <p>https://www.seiscomp.de/doc/base/tutorials/postinstall.html</p>
+        <li><a href="{% url 'polls:sito_id' sito.id %}">{{ sito.localita }}</a></li>
+    </tr>   
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
