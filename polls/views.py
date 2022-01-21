@@ -1,3 +1,4 @@
+from django import template
 from django.shortcuts import render
 
 # Create your views here.
@@ -45,4 +46,14 @@ def get_unipd(request,id):
 def get_more_info(request,id):
     pass
 
+def mapping(request):
+    siti_to_map=Sito.objects.order_by('-id')
+    template = loader.get_template('polls/map.html')
+    context = {
+        'siti_to_map': siti_to_map,
+    }
+    
+    return render(request, 'polls/map.html', context)
+
+    #pass
     

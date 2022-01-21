@@ -14,8 +14,8 @@ from django.db import models
 class Sito(models.Model):
     #id = models.TextField(default=None)
     localita = models.CharField(max_length=100,default=None)
-    indirizzo = models.TextField(default=None)
-    provincia = models.TextField(default=None)
+    indirizzo = models.CharField(max_length=100,default=None)
+    provincia = models.CharField(max_length=100,default=None)
     posizione_GPS = models.TextField(default=None)
     link_scheda = models.TextField(default=None)
     link_foto = models.TextField(default=None)

@@ -1,20 +1,43 @@
 {% if latest_siti %}
+<html>
+<style>
+table, th, td {
+  border:1px solid rgb(139, 31, 31);
+}
+</style>
+<body>    
+
     <ul>
+    <table style="width:100%">
+    <tr>
+        <th>Localita</th>
+        <th>indirizzo</th>
+        <th>link_earth</th>
+        <th>link_foto</th>
+        <th>link_earth</th>
+        <th>posizone_gps</th>
+        <th>provincia</th>
+        <th>serial_n</th>
+        <th>status</th>
+    </tr>
     {% for sito in latest_siti %}
     <tr>
-        <th>{{ sito.localita }}</th>
-        <th>{{ sito.indirizzo }}</th>
-        <th>{{ sito.provincia }}</th>
-        <th>{{ sito.posizione GPS }}</th>
-        <th>{{ sito.localita }}</th>
-        <th>{{ sito.localita }}</th>
-        <th>{{ sito.localita }}</th>
-
-        <p>https://www.seiscomp.de/doc/base/tutorials/postinstall.html</p>
-        <li><a href="{% url 'polls:sito_id' sito.id %}">{{ sito.localita }}</a></li>
+        <td><a href="{% url 'polls:sito_id' sito.id %}">{{ sito.localita }}</a></td>
+        <td>{{ sito.indirizzo }}</td>
+        <td><a href="https://www.seiscomp.de/doc/base/tutorials/postinstall.html">{{ sito.link_earth }}</a></td>
+        <td><a href="{{ sito.link_foto }}">link_foto</a></td>
+        <td><a href="8.8.8.8">link_eartd</a></td>
+        <td>{{ sito.posizione_GPS }}</td>
+        <td>{{ sito.provincia }}</td>
+        <td>{{ sito.serial_n }}</td>
+        <td>{{ sito.status }}</td>
     </tr>   
     {% endfor %}
+    </table>
     </ul>
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+
+</body>
+</html>

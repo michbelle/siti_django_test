@@ -1,0 +1,28 @@
+{% if siti_to_map %}
+<html><body>
+    <div id="mapdiv"></div>
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <script>
+      map = new OpenLayers.Map("mapdiv");
+      map.addLayer(new OpenLayers.Layer.OSM());
+      //{% for sito in siti_to_map %}
+      var lonLat = new OpenLayers.LonLat(4.123,51.5077286)
+            .transform(
+              new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+              map.getProjectionObject() // to Spherical Mercator Projection
+            );
+      //{% endfor %}
+            
+      
+  
+      var markers = new OpenLayers.Layer.Markers( "Markers" );
+      map.addLayer(markers);
+      
+      //{% for sito in latest_siti %}
+      markers.addMarker(new OpenLayers.Marker(lonLat));
+      //{% endfor %}
+      var zoom=16;
+      map.setCenter (lonLat, zoom);
+    </script>
+</body></html>
+{% endif %}

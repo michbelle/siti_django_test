@@ -9,5 +9,5 @@ urlpatterns = [
     path('<int:id>/localita/', views.localita, name='localita'),
     path('recenti/', views.recenti, name='recenti'),
     path('<int:id>/detail/', views.detail, name='detail'),
-
+    path('map', views.mapping, name='map'),
 ]
